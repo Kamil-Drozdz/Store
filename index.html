@@ -7,16 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Sklep</title>
+    <title>Shop</title>
 </head>
 
 <body>
     <header>
         <h1 class="header-title">
-            <span>Sklep</span>
+            <span>Shop</span>
         </h1>
         <div class="search__bar">
-            <input type="text" class="search__bar-input" placeholder="Wyszukaj w naszym sklepie" autocomplete="off" />
+            <input type="text" class="search__bar-input" placeholder="Search in our store" autocomplete="off" />
             <div>
                 <i class="fa fa-search" aria-hidden="true"></i>
             </div>
@@ -24,28 +24,26 @@
         <div class="header__basket">
             <div>
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                <span>Koszyk</span>
+                <span>Basket</span>
             </div>
         </div>
     </header>
     <main class="container">
-        <aside class="container__categories">
-            <h2 class="container__categories-title">Nasze produkty</h2>
-            <section class="container__categories-item">
-                <button>Męskie ubrania</button>
-                <button>Damskie ubrania</button>
-                <button>Biżuteria</button>
-                <button>Elektronika</button>
-            </section>
-        </aside>
+        <h2 class="container__categories-title">Categories</h2>
+        <section class="container__categories-item">
+        </section>
+        <p id="promotion">Stay tuned for promotions! refresh the page and see if you found anything for you
+        </p>
         <section class="section__products">
             <ul class="section__product">
             </ul>
         </section>
     </main>
+    <div id="err"></div>
     <footer>
 
     </footer>
+    <script src="/functionality.js"></script>
     <script src="app.js"></script>
 </body>
 
