@@ -101,6 +101,10 @@ header {
 	color: green;
 	font-weight: bold;
 }
+#promotion.isActive {
+	display: none;
+}
+
 .section__product {
 	display: flex;
 	justify-content: center;
@@ -190,6 +194,17 @@ header {
 	font-size: 40px;
 	font-weight: bold;
 	text-align: center;
+}
+.empty-state {
+	width: 100%;
+	font-weight: bold;
+	font-size: 30px;
+	text-align: center;
+	display: none;
+	margin-top: 20px;
+}
+.empty-state.isActive {
+	display: block;
 }
 
 @media (min-width: 1300px) {
