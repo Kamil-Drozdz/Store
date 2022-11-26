@@ -9,6 +9,9 @@ header {
 	display: flex;
 	padding: 30px;
 	border-bottom: 1px solid yellow;
+	position: sticky;
+	top: 0;
+	z-index: 2;
 }
 .header-title::first-letter {
 	color: yellow;
@@ -16,8 +19,11 @@ header {
 	letter-spacing: 6px;
 	font-size: 40px;
 }
-.header-title {
+.header-title a {
 	font-size: 40px;
+	text-decoration: none;
+	color: white;
+	margin-left: 20px;
 }
 .search__bar {
 	flex-grow: 1;

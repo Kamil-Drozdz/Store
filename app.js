@@ -1,7 +1,8 @@
 let categories = new Set();
-
+const basket = [];
 categoryItems = document.querySelector('.container__categories-item');
 const ul = document.querySelector('.section__product');
+let addToBasketBtn = document.querySelectorAll('.section__product button');
 
 (async () => {
 	try {
@@ -21,11 +22,27 @@ const ul = document.querySelector('.section__product');
 						let category = document.createElement('span');
 						let description = document.createElement('h4');
 						let image = document.createElement('img');
-						let button = document.createElement('button');
 						let priceSale = document.createElement('h3');
 						let priceSaleInfo = document.createElement('h5');
-						//-----
-						console.log(item);
+						addToBasketBtn = document.createElement('button');
+						addToBasketBtn.innerHTML = 'add to cart';
+						addToBasketBtn.onclick = function () {
+							addToBasketBtn.normalPrice = item.price;
+							addToBasketBtn.promotion = item.price * 0.8;
+
+							if (priceSaleInfo.classList.contains('isActive')) {
+								basket.push(addToBasketBtn.promotion);
+							} else {
+								basket.push(addToBasketBtn.normalPrice);
+							}
+
+							const basketTotalPrice = basket.reduce((sum, product) => {
+								return Number((sum += product).toFixed(2));
+							}, 0);
+
+							const basketAmount = document.querySelector('.header__basket-amount');
+							basketAmount.innerHTML = basketTotalPrice + ' $';
+						};
 						priceSaleInfo.innerHTML = 'Sale!';
 						title.innerHTML = `${item.title}`;
 						price.innerHTML = `${item.price}  $`;
@@ -33,8 +50,6 @@ const ul = document.querySelector('.section__product');
 						category.innerHTML = `${item.category}`;
 						description.innerHTML = `${item.description}`;
 						image.innerHTML = `${item.image}`;
-						button.innerHTML = 'add to cart';
-
 						li.appendChild(priceSaleInfo);
 						li.append(image);
 						image.src = item.image;
@@ -44,7 +59,8 @@ const ul = document.querySelector('.section__product');
 						li.appendChild(description);
 						li.appendChild(price);
 						li.appendChild(priceSale);
-						li.appendChild(button);
+						li.appendChild(addToBasketBtn);
+
 						list.appendChild(li);
 						ul.appendChild(list);
 
@@ -87,7 +103,6 @@ const ul = document.querySelector('.section__product');
 							} else {
 								selectedProduct = selectedProduct.filter(item => item.category === category);
 							}
-							console.log('click', category, selectedProduct);
 							renderItems(selectedProduct);
 						})
 					);
