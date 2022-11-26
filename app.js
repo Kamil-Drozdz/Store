@@ -1,8 +1,18 @@
 let categories = new Set();
-const basket = [];
+let basket = [];
 categoryItems = document.querySelector('.container__categories-item');
 const ul = document.querySelector('.section__product');
 let addToBasketBtn = document.querySelectorAll('.section__product button');
+const basketAmount = document.querySelector('.header__basket-amount');
+const basketClear = document.querySelector('.header__basket-clear');
+const clearBasket = () => {
+	basketAmount.innerHTML = 'Basket';
+	basketClear.classList.remove('isActive');
+	basket = [];
+};
+basketClear.addEventListener('click', clearBasket);
+
+let basketTotalPrice;
 
 (async () => {
 	try {
@@ -36,12 +46,12 @@ let addToBasketBtn = document.querySelectorAll('.section__product button');
 								basket.push(addToBasketBtn.normalPrice);
 							}
 
-							const basketTotalPrice = basket.reduce((sum, product) => {
+							basketTotalPrice = basket.reduce((sum, product) => {
 								return Number((sum += product).toFixed(2));
 							}, 0);
 
-							const basketAmount = document.querySelector('.header__basket-amount');
 							basketAmount.innerHTML = basketTotalPrice + ' $';
+							basketTotalPrice > 0 ? basketClear.classList.add('isActive') : basketClear.classList.remove('isActive');
 						};
 						priceSaleInfo.innerHTML = 'Sale!';
 						title.innerHTML = `${item.title}`;

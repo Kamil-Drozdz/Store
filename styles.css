@@ -48,16 +48,37 @@ header {
 	border-bottom-right-radius: 20%;
 }
 .header__basket {
-	align-items: center;
+	display: flex;
 	margin-top: 10px;
+	min-width: 6%;
+	text-align: center;
+	color: white;
 }
 .header__basket i {
 	color: yellow;
 	font-size: 25px;
 	margin-right: 5px;
 }
-.header__basket {
+.header__basket-amount {
+	margin: 10 0px;
+	min-width: 40px;
+}
+.header__basket-clear {
+	margin-top: -15%;
+	box-sizing: border-box;
+	width: 20px;
+	height: 20px;
+	border-width: px;
+	border-style: solid;
+	border-color: red;
+	border-radius: 100%;
 	color: white;
+	background-color: red;
+	display: none;
+	cursor: pointer;
+}
+.header__basket-clear.isActive {
+	display: block;
 }
 .container {
 	display: flex;
