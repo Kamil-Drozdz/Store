@@ -23,7 +23,7 @@
 
 <!-- About the Project -->
 ## :star2: About the Project
-my portfolio page with my information and some projects
+fragment of the online store where we can add products to the basket, delete, we have random promotions that are taken into account when adding to the basket as well as division into categories and searching for a given product
 
 <!-- Screenshots -->
 ### :camera: Screenshots
