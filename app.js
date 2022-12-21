@@ -9,6 +9,20 @@ const clearBasket = () => {
 	basketAmount.innerHTML = 'Basket';
 	basketClear.classList.remove('isActive');
 	basket = [];
+	Toastify({
+		text: 'The cart has been emptied',
+		duration: 2000,
+		destination: 'https://github.com/apvarun/toastify-js',
+		newWindow: true,
+		className: 'info',
+		close: true,
+		gravity: 'bottom',
+		position: 'left',
+		stopOnFocus: true,
+		style: {
+			background: 'black',
+		},
+	}).showToast();
 };
 basketClear.addEventListener('click', clearBasket);
 
@@ -42,8 +56,36 @@ let basketTotalPrice;
 
 							if (priceSaleInfo.classList.contains('isActive')) {
 								basket.push(addToBasketBtn.promotion);
+								Toastify({
+									text: 'You have successfully added a  promotional product to the cart',
+									duration: 1000,
+									destination: 'https://github.com/apvarun/toastify-js',
+									newWindow: true,
+									className: 'info',
+									close: true,
+									gravity: 'bottom',
+									position: 'left',
+									stopOnFocus: true,
+									style: {
+										background: 'black',
+									},
+								}).showToast();
 							} else {
 								basket.push(addToBasketBtn.normalPrice);
+								Toastify({
+									text: 'You have successfully added a product to the cart',
+									duration: 1000,
+									destination: 'https://github.com/apvarun/toastify-js',
+									newWindow: true,
+									className: 'info',
+									close: true,
+									gravity: 'bottom',
+									position: 'left',
+									stopOnFocus: true,
+									style: {
+										background: 'black',
+									},
+								}).showToast();
 							}
 
 							basketTotalPrice = basket.reduce((sum, product) => {
@@ -70,12 +112,12 @@ let basketTotalPrice;
 						li.appendChild(price);
 						li.appendChild(priceSale);
 						li.appendChild(addToBasketBtn);
-
 						list.appendChild(li);
 						ul.appendChild(list);
 
 						function promotionRandomProduct() {
 							let rand = Math.round(Math.random() * 10);
+
 							if (rand > 9) {
 								item.id = priceSaleInfo.classList.toggle('isActive');
 								+priceSale.classList.toggle('isActive') + price.classList.toggle('isActive');
@@ -95,7 +137,6 @@ let basketTotalPrice;
 						newCategories.innerHTML = category[0].toUpperCase() + category.slice(1).toLowerCase();
 						newCategories.dataset.category = category;
 						value === 0 ? newCategories.classList.add('isActive') : '';
-
 						categoryItems.appendChild(newCategories);
 					});
 
@@ -106,8 +147,8 @@ let basketTotalPrice;
 
 							categoriesButtons.forEach(btn => btn.classList.remove('isActive'));
 							e.target.classList.add('isActive');
-
 							selectedProduct = data;
+
 							if (category === 'All') {
 								selectedProduct = data;
 							} else {
