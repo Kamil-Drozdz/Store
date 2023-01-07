@@ -45,6 +45,31 @@ let basketTotalPrice;
 						let price = document.createElement('div');
 						let category = document.createElement('span');
 						let description = document.createElement('h4');
+                        
+						//function to expand description
+						description.style.height = '15px';
+						description.style.overflow = 'hidden';
+						let descriptionExpanded = false;
+						description.addEventListener('click', function () {
+							if (descriptionExpanded) {
+								description.style.height = '15px';
+								description.style.overflow = 'hidden';
+								descriptionExpanded = false;
+							} else {
+								description.style.height = 'auto';
+								description.style.overflow = 'visible';
+								descriptionExpanded = true;
+							}
+						});
+
+						window.addEventListener('scroll', function () {
+							if (descriptionExpanded) {
+								description.style.height = '15x';
+								description.style.overflow = 'hidden';
+								descriptionExpanded = false;
+							}
+						});
+
 						let image = document.createElement('img');
 						let priceSale = document.createElement('h3');
 						let priceSaleInfo = document.createElement('h5');
