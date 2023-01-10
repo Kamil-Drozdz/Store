@@ -45,12 +45,14 @@ let basketTotalPrice;
 						let price = document.createElement('div');
 						let category = document.createElement('span');
 						let description = document.createElement('h4');
-                        
+
 						//function to expand description
 						description.style.height = '15px';
 						description.style.overflow = 'hidden';
 						let descriptionExpanded = false;
-						description.addEventListener('click', function () {
+						let descriptionText = document.createElement('p');
+						descriptionText.textContent = 'Click here to expand info';
+						descriptionText.addEventListener('click', function () {
 							if (descriptionExpanded) {
 								description.style.height = '15px';
 								description.style.overflow = 'hidden';
@@ -82,7 +84,7 @@ let basketTotalPrice;
 							if (priceSaleInfo.classList.contains('isActive')) {
 								basket.push(addToBasketBtn.promotion);
 								Toastify({
-									text: 'You have successfully added a  promotional product to the cart',
+									text: 'You have successfully added a promotional product to the cart',
 									duration: 1000,
 									destination: 'https://github.com/apvarun/toastify-js',
 									newWindow: true,
@@ -122,7 +124,7 @@ let basketTotalPrice;
 						};
 						priceSaleInfo.innerHTML = 'Sale!';
 						title.innerHTML = `${item.title}`;
-						price.innerHTML = `${item.price}  $`;
+						price.innerHTML = `${item.price} $`;
 						priceSale.innerHTML = `${(item.price * 0.8).toFixed(2)} $`;
 						category.innerHTML = `${item.category}`;
 						description.innerHTML = `${item.description}`;
@@ -133,6 +135,7 @@ let basketTotalPrice;
 						image.alt = `${item.title}`;
 						li.appendChild(title);
 						li.appendChild(category);
+						li.appendChild(descriptionText);
 						li.appendChild(description);
 						li.appendChild(price);
 						li.appendChild(priceSale);

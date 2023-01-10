@@ -111,6 +111,7 @@ header {
 	font-size: 20px;
 	padding: 4px 8px;
 	border: none;
+	color: black;
 	background-color: none;
 	border-radius: 15px;
 	transition: 0.3s ease-in-out;
@@ -139,6 +140,7 @@ header {
 .section__product {
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	flex-wrap: wrap;
 	margin-top: 20px;
 	gap: 30px;
@@ -183,9 +185,14 @@ header {
 	text-decoration-line: line-through;
 }
 
-.section__product h4 {
+.section__product h4,
+p {
 	color: black;
 	opacity: 0.75;
+}
+.section__product p {
+	font-size: 12px;
+	margin-top: 4px;
 }
 .section__product h5 {
 	position: relative;
@@ -275,6 +282,9 @@ header {
 	}
 	.header__basket i {
 		font-size: medium;
+	}
+	.header__basket-clear {
+		min-width: 15px;
 	}
 	.container__categories-item {
 		gap: 4px;
